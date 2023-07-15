@@ -1,0 +1,14 @@
+node ('UBUNTU_NODE1')
+   {
+    stage('git') {
+      git url: 'https://github.com/openmrs/openmrs-core.git',
+          branch: 'master'
+    }
+    stage('build') {
+      sh 'export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH" && mvn package'
+    }
+    stage('postbuild') {
+      archiveArtifacts artifacts: '**/target/openmrs.war', followSymlinks: false
+      junit '**/surefire-reports/TEST-*.xml'
+    }
+}
