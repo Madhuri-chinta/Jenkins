@@ -1,0 +1,14 @@
+node ('UBUNTU_NODE1')
+    {
+      stage('git') {
+        git url:'https://github.com/spring-projects/spring-petclinic.git',
+            branch: 'main'
+      }
+      stage('build') {
+        sh 'export "PATH=/usr/lib/jvm/java-17-openjdk-amd64/bin:$PATH" && mvn package'
+      }
+      stage('postbuild') {
+          archiveArtifacts artifacts: '**/target/spring-petclinic-3.1.0-SNAPSHOT.jar', followSymlinks: false
+          junit '**/surefire-reports/TEST-*.xml'
+    }
+    }
