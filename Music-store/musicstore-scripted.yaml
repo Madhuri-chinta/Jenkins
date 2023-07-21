@@ -1,0 +1,15 @@
+node ('UBUNTU_NODE1')
+{
+  stage('git') {
+    git url: 'https://github.com/Madhuri-chinta/MusicStore.git',
+        branch: 'main'
+  }
+  stage('build') {
+    sh 'dotnet restore ./MusicStore/MusicStore.csproj'
+    sh 'dotnet build ./MusicStore/MusicStore.csproj'
+  }
+  stage('npm') {
+    sh 'cd /home/ubuntu/root/workspace/music-scr/MusicStore/ClientApp' 
+    sh 'npm install express'
+     }
+}
