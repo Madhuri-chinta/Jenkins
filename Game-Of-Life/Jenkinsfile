@@ -22,8 +22,8 @@ pipeline {
         }
         stage ('testResults') {
             steps {
-                junit testResults: '**/surefire-reports/TEST-*.xml',
-                      allowEmptyResults : ture
+                junit testResults: '**/surefire-reports/TEST-*.xml'
+            
             }              
             }
         }   
