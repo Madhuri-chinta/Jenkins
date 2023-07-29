@@ -47,7 +47,7 @@ exit
 relogin
 docker info
 ```
-* To pull 'sonarqube:latest' image from docker hub and create container docker container with that image
+* To pull 'sonarqube:latest' image from docker hub and create docker container with that image
 * After go to web and give '<instance public ip:container port number>' open sonar cloud page
 * After  give username and password enter into that page and go to my account generate one user token,that token give some secret code 
 * After go to projects create one project with project key and enter into the 'Set up project for Clean as You Code',select 'use the global setting 'option,created the project
