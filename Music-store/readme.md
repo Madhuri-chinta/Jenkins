@@ -1,8 +1,8 @@
 # MUSICSTORE APPLICATION:
 -------------------------
 * This project requires
-    => dotnet 6.0 core
-    => nodejs 16
+    * dotnet 6.0 core
+    * nodejs 16
 ### INSTALLATION OF DOTNET:6.0
 -------------------------------
 ```
