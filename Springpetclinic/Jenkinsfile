@@ -1,5 +1,6 @@
 pipeline {
     agent { label 'UBUNTU_NODE1'}
+    triggers { pollSCM ('* * * * *') }
     stages {
         stage ('vcs') {
             steps {
@@ -9,7 +10,8 @@ pipeline {
         }
             stage ('build') {
                 steps {
-                    sh 'export "PATH=/usr/lib/jvm/java-17-openjdk-amd64/bin:$PATH" && mvn package'
+                    //sh 'export "PATH=/usr/lib/jvm/java-17-openjdk-amd64/bin:$PATH" 
+                    sh 'mvn package'
                 }
             }
             stage ('archiveartifacts') {
